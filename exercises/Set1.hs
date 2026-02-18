@@ -87,7 +87,12 @@ checkPassword password = if password == "swordfish" || password == "mellon"
 -- in grams, and returns the cost in credits.
 
 postagePrice :: Int -> Int
-postagePrice = todo
+-- postagePrice x = if x <= 500 then 250 else if x > 500 then (x - 300) else if x > 5001 then 6000 else 0
+postagePrice x
+  | x <= 500 = 250
+  | x > 5000 = 6000
+  | x > 500 = x + 300
+  | otherwise = 0
 
 ------------------------------------------------------------------------------
 -- Ex 8: define a function isZero that returns True if it is given an
@@ -97,7 +102,8 @@ postagePrice = todo
 --
 -- Ps. remember, the type of booleans in haskell is Bool
 
-isZero = todo
+isZero :: Integer -> Bool
+isZero x = if x == 0 then True else False
 
 ------------------------------------------------------------------------------
 -- Ex 9: implement using recursion a function sumTo such that
@@ -105,7 +111,8 @@ isZero = todo
 -- computes the sum 1+2+...+n
 
 sumTo :: Integer -> Integer
-sumTo = todo
+sumTo n =
+    while ()
 
 ------------------------------------------------------------------------------
 -- Ex 10: power n k should compute n to the power k (i.e. n^k)
