@@ -111,8 +111,8 @@ isZero x = if x == 0 then True else False
 -- computes the sum 1+2+...+n
 
 sumTo :: Integer -> Integer
-sumTo n =
-    while ()
+sumTo 0 = 0
+sumTo n = n + sumTo (n - 1)
 
 ------------------------------------------------------------------------------
 -- Ex 10: power n k should compute n to the power k (i.e. n^k)
@@ -120,7 +120,8 @@ sumTo n =
 -- There's no need to handle negative values of k.
 
 power :: Integer -> Integer -> Integer
-power = todo
+power 0 0 = 0
+power n k = n^k
 
 ------------------------------------------------------------------------------
 -- Ex 11: ilog3 n should be the number of times you can divide given
@@ -139,4 +140,5 @@ power = todo
 --   ilog3 7 ==> 2
 
 ilog3 :: Integer -> Integer
-ilog3 = todo
+ilog3 0 = 0
+ilog3 n = ilog3 $ n `div` 3
