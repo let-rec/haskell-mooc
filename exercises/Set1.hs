@@ -141,4 +141,4 @@ power n k = n^k
 
 ilog3 :: Integer -> Integer
 ilog3 0 = 0
-ilog3 n = ilog3 $ n `div` 3
+ilog3 n = 1 + (ilog3 $ n `div` 3)
