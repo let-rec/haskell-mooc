@@ -87,9 +87,11 @@ myGcd a b
 -- * you can compute the length of a string with the length function
 
 leftpad :: String -> Int -> String
-leftpad str 0 = str
 leftpad str n
-  | length str < n = leftpad str ++ " "
+  | n == 0 = str
+  | length str == n = str
+  | length str >  n = leftpad  str 0
+  | length str <  n = leftpad (" " ++ str) n
 
 ------------------------------------------------------------------------------
 -- Ex 5: let's make a countdown for a rocket! Given a number, you
@@ -106,7 +108,14 @@ leftpad str n
 
 countdown :: Integer -> String
 countdown = todo
+-- countdown n
+--   | n == 0 = countdown' n "Liftoff!"
+--   | n  > 0 = "Ready! " ++ countdown' n ""
 
+-- countdown' :: Integer -> String -> String
+-- countdown' n str
+--   | n == 0 = str
+--   | n > 0 = countdown' (n-1) (show n ++ "...")
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
 -- smallest number (greater than 1) that divides the given number evenly.
