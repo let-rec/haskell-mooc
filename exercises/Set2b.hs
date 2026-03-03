@@ -29,11 +29,10 @@ binomial n k = (binomial (n-1) k) + (binomial (n-1) (k-1))
 --   oddFactorial 6 ==> 5*3*1 ==> 15
 
 oddFactorial :: Integer -> Integer
-oddFactorial = todo
--- oddFactorial n
---   | n < 3 = 1
---   | even n = oddFactorial n - 1
---   | odd  n = n * oddFactorial (n - 2)
+oddFactorial n
+  | n < 3 = 1
+  | even n = oddFactorial (n - 1)
+  | odd  n = n * oddFactorial (n - 2)
 
 
 ------------------------------------------------------------------------------
@@ -116,6 +115,7 @@ countdown = todo
 -- countdown' n str
 --   | n == 0 = str
 --   | n > 0 = countdown' (n-1) (show n ++ "...")
+
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
 -- smallest number (greater than 1) that divides the given number evenly.
@@ -133,6 +133,9 @@ countdown = todo
 
 smallestDivisor :: Integer -> Integer
 smallestDivisor = todo
+  -- | even n = 2
+  -- | n `mod` 3 == 0 = 3
+  -- | n
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
