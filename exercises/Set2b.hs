@@ -106,15 +106,13 @@ leftpad str n
 -- * you'll probably need a recursive helper function
 
 countdown :: Integer -> String
-countdown = todo
--- countdown n
---   | n == 0 = countdown' n "Liftoff!"
---   | n  > 0 = "Ready! " ++ countdown' n ""
+countdown n = countdown' n "Ready! "
 
--- countdown' :: Integer -> String -> String
--- countdown' n str
---   | n == 0 = str
---   | n > 0 = countdown' (n-1) (show n ++ "...")
+countdown' :: Integer -> String -> String
+countdown' n s
+  | n == 0 = (s ++ " Liftoff!")
+  | n > 0 = countdown' (n-1) (s ++ (show n ++ "... "))
+
 
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
@@ -132,10 +130,16 @@ countdown = todo
 -- Hint: remember the mod function!
 
 smallestDivisor :: Integer -> Integer
-smallestDivisor = todo
-  -- | even n = 2
-  -- | n `mod` 3 == 0 = 3
-  -- | n
+smallestDivisor n
+  | even n = 2
+  | n `mod` 3 == 0 = 3
+  | n `mod` 5 == 0 = 5
+  | n `mod` 7 == 0 = 7
+  | odd n = n
+  | otherwise = 1
+
+
+-- (x `div` y)*y + (x `mod` y) == x
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
